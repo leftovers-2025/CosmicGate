@@ -1,7 +1,11 @@
 import { Elysia, t } from "elysia";
+import { cors } from "@elysiajs/cors";
 import { fetchVirtuePoint } from "./gemini/api";
 
+const PORT = 3030;
+
 const app = new Elysia()
+    .use(cors())
     .get("/hello", () => "Hello Elysia")
     .get("/generate", async ({ set, query }) => {
         // プロンプトをクエリパラメータから取得
@@ -26,7 +30,7 @@ const app = new Elysia()
     })
     .post("/generate", async ({ set, body }) => {
         // プロンプトをJSONボディから取得
-        const { text }= body;
+        const { text } = body;
         if (text == null || text === "") {
             console.error('prompt is not set');
             set.status = 400;
@@ -49,7 +53,7 @@ const app = new Elysia()
             text: t.String(),
         })
     })
-    .listen(3000);
+    .listen(PORT);
 
 console.log(
     `CosmicGate is opened at ${app.server?.hostname}:${app.server?.port}`
