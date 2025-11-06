@@ -28,7 +28,7 @@ bun dev
 
 ### 3. 口座交信
 
-`http://localhost:3000/generate`に対して以下のいずれかのリクエストを送る
+`http://localhost:3030/generate`に対して以下のいずれかのリクエストを送る
 
 - クエリパラメータ`prompt`に善行を設定し`GET`リクエストを送る
 - 下記のJSONの`text`に善行を設定し、`POST`リクエストをを送る
