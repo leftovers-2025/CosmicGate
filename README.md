@@ -1,15 +1,35 @@
-# Elysia with Bun runtime
+# Cosmic Gate
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
+宇宙銀行交信バックエンド
+
+本システムは、宇宙からの波動をアンテナで電気ノイズとして捕捉し、即座に乱数シード化。
+シードをクラウドGPU上のLLMへ送信し、LLMが宇宙エネルギーをリアルタイムで数値へ変換。
+出力結果をディスプレイへ即時表示する、宇宙波動可視化システムである。
+
+## 開発環境
+
+宇宙の波動をコンピュータ乱数として可視化するために使ったもの
+
+- Elysia.js
+- Bun runtime
+
+## 交信方法
+
+### 1. サーバー起動
+
 ```bash
-bun create elysia ./elysia-example
+bun dev
 ```
 
-## Development
-To start the development server run:
-```bash
-bun run dev
-```
+### 2. 口座交信
 
-Open http://localhost:3000/ with your browser to see the result.
+`http://localhost:3000/generate`に対して以下のいずれかのリクエストを送る
+
+- クエリパラメータ`prompt`に善行を設定し`GET`リクエストを送る
+- 下記のJSONの`text`に善行を設定し、`POST`リクエストをを送る
+
+```json
+{
+    "text": "今日の善行"
+}
+```
